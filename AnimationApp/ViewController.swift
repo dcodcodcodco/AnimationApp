@@ -17,10 +17,10 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var runAnimationButton: UIButton!
     
-    var randomAnimation: Animation = Animation()
+    var randomAnimation: EmptyAnimation = EmptyAnimation()
     
     override func viewDidLoad() {
-        randomAnimation = DataManager.shared.getRandomAnimation();
+        randomAnimation = Animations.shared.getRandomAnimation();
     }
     
     @IBAction func runAnimationButton(_ sender: SpringButton) {
@@ -34,7 +34,7 @@ class ViewController: UIViewController {
         animationForce.text = String(format: "Force: %.2f", randomAnimation.force)
         animationDuration.text = String(format:"Duration: %.2f", randomAnimation.duration)
         
-        randomAnimation = DataManager.shared.getRandomAnimation();
+        randomAnimation = Animations.shared.getRandomAnimation();
         runAnimationButton.setTitle(randomAnimation.animationType, for: .normal)
        
     }
